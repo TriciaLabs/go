@@ -3,6 +3,8 @@ import { Inter, Inter_Tight } from 'next/font/google';
 import './globals.css';
 import { Providers } from './components/provider';
 import { ThemeToggle } from './components/theme-toggle/theme-toggle';
+import Header from './components/header/page';
+import Footer from './components/footer/page';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -29,8 +31,9 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${inter.variable} ${interTight.variable} antialiased`}>
         <Providers>
-          <ThemeToggle />
+          <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>

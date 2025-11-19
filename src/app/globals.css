@@ -6,24 +6,24 @@
   --color-content-primary: #000000;
   --color-content-secondary: #4b4b4b;
   --color-content-tertiary: #666666;
-  --color-content-brand: #2d639e;
+  --color-content-brand: #003366;
 
   /* Background Colors */
   --color-background-primary: #ffffff;
   --color-background-secondary: #f4f4f4;
   --color-background-tertiary: #e9e9e9;
-  --color-background-brand: #2d639e;
+  --color-background-brand: #003366;
   --color-background-highlights: #248eff;
 
   /* Border Colors */
   --color-border-primary: #d3d3d3;
   --color-border-secondary: #b5b5b5;
-  --color-border-brand: #2d639e;
+  --color-border-brand: #003366;
   --color-border-divisor: #d0d0d0;
 
   /* Accent Colors */
-  --color-accent-primary: #2d639e;
-  --color-accent-primary-light: #2d639e;
+  --color-accent-primary: #003366;
+  --color-accent-primary-light: #003366;
   --color-accent-blue: #248eff;
   --color-accent-blue-light: #248eff;
   --color-accent-yellow: #f0dc02;
@@ -66,9 +66,18 @@
   --text-link-weight: 500;
 }
 
-/* _________________________________________ */
-/*  🔆 TEMA CLARO (padrao)                   */
-/* _________________________________________ */
+/* ======================================================= */
+/*   VARIÁVEL CRUCIAL PARA TEXTO EM FUNDOS ESCUROS         */
+/* ======================================================= */
+
+:root {
+  --content-on-dark: #ffffff; /* Texto claro em botões/caixas escuras */
+}
+
+/* ======================================================= */
+/*   🔆 TEMA CLARO                                          */
+/* ======================================================= */
+
 :root {
   --radius: 0.625rem;
 
@@ -81,17 +90,21 @@
   --popover: var(--color-background-secondary);
   --popover-foreground: var(--color-content-primary);
 
-  --primary: var(--color-content-brand);
-  --primary-foreground: var(--color-content-primary);
+  /* Botões / elementos principais */
+  --primary: var(--color-content-brand); /* azul escuro */
+  --primary-foreground: var(--content-on-dark); /* texto branco SEMPRE */
 
+  /* Secundário (claro) */
   --secondary: var(--color-background-tertiary);
   --secondary-foreground: var(--color-content-primary);
 
+  /* Muted */
   --muted: var(--color-background-tertiary);
   --muted-foreground: var(--color-content-secondary);
 
-  --accent: var(--color-accent-yellow);
-  --accent-foreground: var(--color-content-primary);
+  /* Accent (pode ser fundo escuro → texto claro) */
+  --accent: var(--color-accent-blue);
+  --accent-foreground: var(--content-on-dark);
 
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
@@ -101,9 +114,10 @@
   --ring: var(--color-border-brand);
 }
 
-/* _________________________________________ */
-/*  🌙 TEMA ESCURO (invertido)               */
-/* _________________________________________ */
+/* ======================================================= */
+/*   🌙 TEMA ESCURO                                         */
+/* ======================================================= */
+
 .dark {
   --background: #151515;
   --foreground: #ffffff;
@@ -114,7 +128,7 @@
   --popover: #1e1e1e;
   --popover-foreground: #ffffff;
 
-  --primary: #2d639e;
+  --primary: #003366;
   --primary-foreground: #ffffff;
 
   --secondary: #23242c;
@@ -131,8 +145,12 @@
 
   --border: #3e3c41;
   --input: #3e3c41;
-  --ring: #2d639e;
+  --ring: #003366;
 }
+
+/* ======================================================= */
+/*   BASE                                                   */
+/* ======================================================= */
 
 @layer base {
   body {
@@ -156,6 +174,10 @@
     line-height: var(--text-title-line-height);
   }
 }
+
+/* ======================================================= */
+/*   UTILITIES                                              */
+/* ======================================================= */
 
 @layer utilities {
   .text-title {
@@ -215,7 +237,10 @@
   }
 }
 
-/* Toast Error Styles */
+/* ======================================================= */
+/*   TOAST ERROR                                            */
+/* ======================================================= */
+
 [data-sonner-toast][data-type='error'] {
   background-color: #dc2626 !important;
   border-color: #b91c1c !important;
@@ -233,18 +258,4 @@
 
 [data-sonner-toast][data-type='error'] [data-icon] {
   color: #ffffff !important;
-}
-
-:root {
-  /* LIGHT MODE VARIÁVEIS */
-  --color-background-primary: #ffffff;
-  --color-content-primary: #000000;
-  /* ... seu tema claro */
-}
-
-.dark {
-  /* DARK MODE VARIÁVEIS */
-  --color-background-primary: #151515;
-  --color-content-primary: #ffffff;
-  /* ... seu tema escuro */
 }
