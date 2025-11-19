@@ -24,7 +24,7 @@ export default function Footer() {
           >
             Patrícia Souza
           </a>{' '}
-          🤍 2025
+          🤎2025
         </div>
       </div>
     </footer>
