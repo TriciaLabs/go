@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Inter_Tight } from 'next/font/google';
 import './globals.css';
+import { Providers } from './components/provider';
+import { ThemeToggle } from './components/theme-toggle/theme-toggle';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -20,13 +22,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${inter.variable} ${interTight.variable} antialiased`}>
-        {children}
+        <Providers>
+          <ThemeToggle />
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button';
+
 export default function Home() {
-  return <h2>Aspect Exam</h2>;
+  return <Button className="bg-accent-primary-light">Aspect Exam</Button>;
 }
